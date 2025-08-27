@@ -74,7 +74,8 @@ if query:
 # ---- Summarization ----
 if st.button(" Summarize All Reviews"):
     with st.spinner("Generating summary..."):
-        summary = summarize_reviews(df["Review"].tolist())
+        summary = summarize_reviews(df["processed_text"].tolist())
+
     st.subheader("📝 Summary of Reviews")
     st.write(summary)
     
