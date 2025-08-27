@@ -1,24 +1,22 @@
+import os
+import zipfile
 import pandas as pd
-import os, zipfile, requests
+import gdown
 from bertopic import BERTopic
 from transformers import pipeline
 
 # ========================
 # 🔹 CONFIG: Your public file URLs
 # ========================
-CSV_URL = "https://drive.google.com/uc?export=download&id=1phcs2q0k7hPS2Lr27zDEJzW6HihrmkAd"
-MODEL_URL = "https://drive.google.com/uc?export=download&id=1b_dGde4-OlDqNK2XDDBvvJJ70gpuPTlb"
-
+CSV_URL = "https://drive.google.com/uc?id=1phcs2q0k7hPS2Lr27zDEJzW6HihrmkAd"
+MODEL_URL = "https://drive.google.com/uc?id=1b_dGde4-OlDqNK2XDDBvvJJ70gpuPTlb"
 
 # ---- Download helper ----
-def download_file(url, filename):
-    if not os.path.exists(filename):
-        print(f"Downloading {filename}...")
-        r = requests.get(url, stream=True)
-        with open(filename, "wb") as f:
-            for chunk in r.iter_content(chunk_size=8192):
-                f.write(chunk)
-        print(f"{filename} downloaded.")
+def download_file(url, output):
+    if not os.path.exists(output):
+        print(f"Downloading {output} from Drive...")
+        gdown.download(url, output, quiet=False)
+        print(f"{output} downloaded.")
 
 # ---- Load BERTopic Model ----
 def load_model():
@@ -46,4 +44,3 @@ def summarize_reviews(reviews, chunk_size=10):
             summary = summarizer(chunk, max_length=120, min_length=40, do_sample=False)
             summaries.append(summary[0]['summary_text'])
     return " ".join(summaries)
-
