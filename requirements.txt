@@ -1,6 +1,9 @@
 streamlit
 pandas
-joblib
 bertopic
+joblib
+transformers
+torch
 scikit-learn
-sentence-transformers
+umap-learn
+hdbscan
