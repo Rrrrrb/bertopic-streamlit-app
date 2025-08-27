@@ -1,0 +1,6 @@
+streamlit
+pandas
+joblib
+bertopic
+scikit-learn
+sentence-transformers
