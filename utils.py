@@ -6,8 +6,9 @@ from transformers import pipeline
 # ========================
 # 🔹 CONFIG: Your public file URLs
 # ========================
-CSV_URL = "YOUR_PREPROCESSED_REVIEWS_CSV_DIRECT_LINK"
-MODEL_URL = "YOUR_BERTOPIC_MODEL_ZIP_DIRECT_LINK"
+CSV_URL = "https://drive.google.com/uc?export=download&id=YOUR_CSV_FILE_ID"
+MODEL_URL = "https://drive.google.com/uc?export=download&id=YOUR_BERTOPIC_ZIP_FILE_ID"
+
 
 # ---- Download helper ----
 def download_file(url, filename):
