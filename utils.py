@@ -6,8 +6,8 @@ from transformers import pipeline
 # ========================
 # 🔹 CONFIG: Your public file URLs
 # ========================
-CSV_URL = "https://drive.google.com/uc?export=download&id=YOUR_CSV_FILE_ID"
-MODEL_URL = "https://drive.google.com/uc?export=download&id=YOUR_BERTOPIC_ZIP_FILE_ID"
+CSV_URL = "https://drive.google.com/uc?export=download&id=1phcs2q0k7hPS2Lr27zDEJzW6HihrmkAd"
+MODEL_URL = "https://drive.google.com/uc?export=download&id=1b_dGde4-OlDqNK2XDDBvvJJ70gpuPTlb"
 
 
 # ---- Download helper ----
