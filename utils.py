@@ -4,7 +4,7 @@ from bertopic import BERTopic
 from transformers import pipeline
 
 # ========================
-# 🔹 CONFIG: Your file URLs
+# 🔹 CONFIG: Your public file URLs
 # ========================
 CSV_URL = "YOUR_PREPROCESSED_REVIEWS_CSV_DIRECT_LINK"
 MODEL_URL = "YOUR_BERTOPIC_MODEL_ZIP_DIRECT_LINK"
@@ -45,3 +45,4 @@ def summarize_reviews(reviews, chunk_size=10):
             summary = summarizer(chunk, max_length=120, min_length=40, do_sample=False)
             summaries.append(summary[0]['summary_text'])
     return " ".join(summaries)
+
