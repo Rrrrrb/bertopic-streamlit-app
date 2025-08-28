@@ -1,5 +1,4 @@
 import os
-import zipfile
 import pandas as pd
 import gdown
 from bertopic import BERTopic
@@ -9,7 +8,7 @@ from transformers import pipeline
 # 🔹 CONFIG: Your public file URLs
 # ========================
 CSV_URL = "https://drive.google.com/uc?id=1phcs2q0k7hPS2Lr27zDEJzW6HihrmkAd"
-MODEL_URL = "https://drive.google.com/uc?id=1b_dGde4-OlDqNK2XDDBvvJJ70gpuPTlb"
+MODEL_URL = "https://drive.google.com/uc?id=1b_dGde4-OlDqNK2XDDBvvJJ70gpuPTlb"  # not zip, direct folder/file
 
 # ---- Download helper ----
 def download_file(url, output):
@@ -20,11 +19,11 @@ def download_file(url, output):
 
 # ---- Load BERTopic Model ----
 def load_model():
-    if not os.path.exists("bertopic_model"):
-        download_file(MODEL_URL, "bertopic_model.zip")
-        with zipfile.ZipFile("bertopic_model.zip", "r") as zip_ref:
-            zip_ref.extractall("bertopic_model")
-    model = BERTopic.load("bertopic_model")
+    model_path = "bertopic_model"
+    if not os.path.exists(model_path):
+        # here we just download the model (no unzip step)
+        download_file(MODEL_URL, model_path)
+    model = BERTopic.load(model_path)
     return model
 
 # ---- Load CSV ----
